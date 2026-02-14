@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koushani Saha - Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --primary-color: #882d38; /* A deep academic red/maroon */
+            --text-color: #2c3e50;
+            --accent-color: #d46a7e; /* Soft pink for accents */
+            /* Increased opacity for better readability against a busy background image */
+            --glass-bg: rgba(255, 255, 255, 0.95); 
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-color);
+            min-height: 100vh;
+            
+            /* --- BACKGROUND IMAGE SETUP --- */
+            /* REPLACE THE URL BELOW WITH YOUR OWN IMAGE LINK */
+            background-image: url('tree.jpg');
+            
+            /* Ensures the image covers the whole background */
+            background-size: cover; 
+            
+            /* Centers the image */
+            background-position: center;
+            
+            /* Keeps the background fixed while scrolling so it doesn't move */
+            background-attachment: fixed;
+            
+            /* A fallback color in case the image doesn't load */
+            background-color: #f0f2f5; 
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--glass-bg);
+            padding: 50px;
+            border-radius: 4px;
+            border-top: 5px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+            /* Backdrop filter for a blur effect behind the container */
+            backdrop-filter: blur(10px); 
+        }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            background-color: #eee;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 3rem;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .subtitle::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            background-color: var(--glass-bg);
+            margin-bottom: 25px;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 3px solid var(--accent-color);
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        /* --- CONTACT SECTION SPECIFIC --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.8); /* Slightly more transparent than sections */
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .contact-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- GRIDS & CONTENT --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .item p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .date {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* --- TAGS & BARS --- */
+        .tag {
+            display: inline-block;
+            background-color: white;
+            border: 1px solid var(--accent-color);
+            color: var(--primary-color);
+            padding: 6px 14px;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .grade-bar-container {
+            margin-top: 8px;
+            background-color: #eee;
+            height: 6px;
+            width: 100%;
+        }
+        .grade-bar-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-bottom: 20px;
+            color: #fff; /* White text for better contrast on image background */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-size: 0.9rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .grid-2, .contact-grid { grid-template-columns: 1fr; gap: 20px; }
+            h1 { font-size: 2.2rem; }
+            .container { padding: 15px; margin-top: 10px;}
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header id="about">
+            <img src="ashii.jpeg" alt="Koushani Saha" class="profile-pic">
+            <h1>Koushani Saha</h1>
+            <p class="subtitle">Political Science Student & Researcher</p>
+            <p>Advocating for civic engagement through research, leadership, and policy analysis.</p>
+        </header>
+
+        <section id="academics">
+            <h2>Academic Excellence</h2>
+            <div class="grid-2">
+                <div>
+                    <div class="item">
+                        <h3>Higher Secondary (Standard 12)</h3>
+                        <p>Score: <strong>91%</strong></p>
+                        <div class="grade-bar-container"><div class="grade-bar-fill" style="width: 91%"></div></div>
+                    </div>
+                    <div class="item">
+                        <h3>Secondary (Standard 10)</h3>
+                        <p>Score: <strong>82%</strong></p>
+                        <div class="grade-bar-container"><div class="grade-bar-fill" style="width: 82%"></div></div>
+                    </div>
+                </div>
+                <div>
+                    <h3>University SGPA (Semester Wise)</h3>
+                    <div style="margin-top: 10px;">
+                        <span class="tag">Sem 1: 8.65</span>
+                        <span class="tag">Sem 2: 8.68</span>
+                        <span class="tag">Sem 3: 8.91</span>
+                        <span class="tag">Sem 4: 9.20</span>
+                        <span class="tag">Sem 5: 8.91</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-top: 15px; color: #666;">Consistent high performance demonstrating strong analytical skills.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Leadership & Governance</h2>
+            
+            <div class="grid-2">
+                <div>
+                    <div class="item">
+                        <h3>Club Coordinator</h3>
+                        <span class="date">2024 - Present | Electoral Literacy Club</span>
+                        <p>Managing campaigns to increase voter awareness and constitutional literacy among students.</p>
+                    </div>
+                    <div class="item">
+                        <h3>Class Representative</h3>
+                        <span class="date">4 Semesters Tenure</span>
+                        <p>Elected representative acting as a mediator between administration and the student body.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Internships</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li class="item"><strong>ISCS:</strong> Research and organizational intern.</li>
+                        <li class="item"><strong>Pledge A Smile:</strong> Community service and social outreach.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Research Presentations</h2>
+            <p style="margin-bottom: 20px;">Presented papers on political theory and governance at the following forums:</p>
+            <div class="item">
+                <span class="tag">University of Kalyani</span>
+                <span class="tag">Adamas University</span>
+                <span class="tag">Indian Political Science Association</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Model United Nations (MUN)</h2>
+            <div class="item">
+                <h3>Delegate Affairs Committee</h3>
+                <span class="date">Adamas University MUN</span>
+                <p>Oversaw logistics and diplomatic protocol for participating delegates.</p>
+            </div>
+            <div class="item">
+                <h3>Active Delegate</h3>
+                <p>Participated in multiple conferences, engaging in resolution drafting and foreign policy debate.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Open to research opportunities, internships, and academic collaborations.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3>Phone</h3>
+                    <a href="tel:7439384476" class="contact-link">+91 74393 84476</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email</h3>
+                    <a href="mailto:email@example.com" class="contact-link">email@example.com</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>~ Designed for Koushani Saha ~</p>
+        </footer>
+    </div>
+
+</body>
+</html>
